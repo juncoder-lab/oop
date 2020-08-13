@@ -49,7 +49,12 @@ class Date
             return 'incorrect argument $lang';
         }
     }
+    public function getYear()
+    {
+        //возвращает год
+        return date ('Y',$this->date);
+    }
 
 }
-$obj=new Date('2009-01-30');
-echo $obj->getMonth();
+$obj=new Date('2045-01-30');
+echo $obj->getYear();
