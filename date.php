@@ -3,7 +3,7 @@
 //Принимает дату в формате "год-месяц-день"
 class Date
 {
-    private $date;
+    public $date;
     private $monthList = ["01" => "январь", "02" => "февраль", "03" => "март", "04" => "апрель", "05" => "май", "06" => "июнь", "07" => "июль", "08" => "август"
         , "09" => "сентябрь", "10" => "октябрь", "11" => "ноябрь", "12" => "декабрь"];
     private $dayList=["0"=>"воскресенье","1"=>"понедельник","2"=>"вторник","3"=>"среда","4"=>"четверг","5"=>"пятница","6"=>"суббота"];
@@ -127,4 +127,24 @@ echo $obj->getDay().'<br>';
 echo $obj->getMonth('ru').'<br>';
 echo $obj->getYear().'<br>';
 echo $obj->getWeekDay('ru').'<br>';
-echo $obj;
+echo $obj.'<br>';
+$date1=new Date();
+$date2=new Date('2020-08-20');
+class Interval
+{
+    private $ndate1;
+    private $ndate2;
+    public function __construct(Date $date1, Date $date2)
+    {
+        $this->ndate1=$date1;
+        $this->ndate2=$date2;
+    }
+    public function toDays()
+    {
+        //возвращает разницу в днях
+        return floor(abs($this->ndate1->date-$this->ndate2->date)/86400);
+    }
+}
+$obj2=new Interval($date1,$date2);
+//print_r($obj2);
+echo $obj2->toDays();
