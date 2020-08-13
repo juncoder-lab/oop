@@ -112,6 +112,14 @@ class Date
         //отнимает значение $value от года
         return $this->getYear()-$value;
     }
+    public function format($format)
+    {
+
+    }
+    public function __toString()
+    {
+        return date('Y M D',$this->date);
+    }
 
 }
 $obj=new Date('2000-08-15');
@@ -119,4 +127,4 @@ echo $obj->getDay().'<br>';
 echo $obj->getMonth('ru').'<br>';
 echo $obj->getYear().'<br>';
 echo $obj->getWeekDay('ru').'<br>';
-echo $obj->addDay(20);
+echo $obj;
