@@ -82,6 +82,36 @@ class Date
             return 'incorrect argument $lang';
         }
     }
+    public function addDay($value)
+    {
+        //добавляет значение $value к дню
+        return $this->getDay()+$value;
+    }
+    public function subDay($value)
+    {
+        //отнимает значение $value от дня
+        return $this->getDay()-$value;
+    }
+    public function addMonth($value)
+    {
+        //добавляет значение $value к месяцу
+        return $this->getMonth()+$value;
+    }
+    public function subMonth($value)
+    {
+        //отнимает значение $value от месяца
+        return $this->getMonth()-$value;
+    }
+    public function addYear($value)
+    {
+        //добавляет значение $value к году
+        return $this->getYear()+$value;
+    }
+    public function subYear($value)
+    {
+        //отнимает значение $value от года
+        return $this->getYear()-$value;
+    }
 
 }
 $obj=new Date('2000-08-15');
@@ -89,3 +119,4 @@ echo $obj->getDay().'<br>';
 echo $obj->getMonth('ru').'<br>';
 echo $obj->getYear().'<br>';
 echo $obj->getWeekDay('ru').'<br>';
+echo $obj->addDay(20);
