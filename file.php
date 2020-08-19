@@ -89,3 +89,5 @@ class File implements iFile
 //echo $_SERVER['DOCUMENT_ROOT'];
 //echo __FILE__;
 //echo __DIR__;
+$obj=new File();
+echo $obj->getText();
