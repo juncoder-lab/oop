@@ -148,3 +148,4 @@ class Interval
 $obj2=new Interval($date1,$date2);
 //print_r($obj2);
 echo $obj2->toDays();
+?>

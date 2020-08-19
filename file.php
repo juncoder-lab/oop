@@ -91,3 +91,4 @@ class File implements iFile
 //echo __DIR__;
 $obj=new File();
 echo $obj->getText();
+?>
