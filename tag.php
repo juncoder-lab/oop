@@ -48,7 +48,15 @@ class Tag
             $attrStr=null;
             foreach ($this->attr as $item=>$value)
             {
-                $attrStr.=" $item=\"$value\"";
+                if($value===true)
+                {
+                    //создает атрибут без значения (например <input id="test" disabled>)
+                    $attrStr.=" $item";
+                }
+                else
+                {
+                    $attrStr.=" $item=\"$value\"";
+                }
             }
             return $attrStr;
         }
