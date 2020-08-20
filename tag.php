@@ -14,7 +14,7 @@ class Tag
     {
         $name=$this->name;
         $attrString=$this->attrStr();
-        return "<$name $attrString>";
+        return "<$name$attrString>";
     }
     public function close()
     {
@@ -28,12 +28,14 @@ class Tag
             $attrStr=null;
             foreach ($this->attr as $item=>$value)
             {
-                $attrStr.="$item=\"$value\" ";
+                $attrStr.=" $item=\"$value\"";
             }
             return $attrStr;
         }
     }
 }
 $obj=new Tag('input',['type'=>'submit', 'value'=>'letsGo']);
-echo $obj->open()
+echo $obj->open();
+$obj2=new Tag('h1');
+echo $obj2->open().'Hello'.$obj2->close();
 ?>
