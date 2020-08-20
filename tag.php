@@ -5,10 +5,14 @@ class Tag
 {
     private $name;
     private $attr;
-    public function __construct($name, $attr=[])
+    public function __construct($name)
     {
         $this->name=$name;
-        $this->attr=$attr;
+    }
+    public function setAttr($name, $value)
+    {
+        $this->attr[$name]=$value;
+        return $this;
     }
     public function open()
     {
@@ -34,8 +38,6 @@ class Tag
         }
     }
 }
-$obj=new Tag('input',['type'=>'submit', 'value'=>'letsGo']);
-echo $obj->open();
-$obj2=new Tag('h1');
-echo $obj2->open().'Hello'.$obj2->close();
+$obj=new Tag('input');
+echo $obj->setAttr('type','submit')->setAttr('value','letsGo')->open();
 ?>
