@@ -9,6 +9,14 @@ class Tag
     {
         $this->name=$name;
     }
+    public function removeClass($nameclass)
+    {
+        if(isset ($this->attr['class']))
+        {
+            $classes=explode(" ", $this->attr['class']);
+            $this->removeElemfromArray($classes, $nameclass);
+        }
+    }
     public function addClass($nameclass)
     { //Добавляет в атрибут class новые значения
         if(isset ($this->attr['class']))
@@ -77,6 +85,12 @@ class Tag
             }
             return $attrStr;
         }
+    }
+    private function removeElemfromArray($arr, $elem)
+    {
+        $key=array_search($elem, $arr);
+        unset($arr[$key]);
+        return $arr;
     }
 }
 //$obj=new Tag('input');
