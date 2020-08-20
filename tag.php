@@ -15,6 +15,15 @@ class Tag
         $this->attr[$name]=$value;
         return $this;
     }
+    public function setAttrs($attrs=[])
+    {
+        //Принимает массив атрибутов
+        foreach ($attrs as $name=>$value)
+        {
+            $this->setAttr($name,$value);
+        }
+        return $this;
+    }
     public function removeAttr($name)
     {
         //Удаление атрибутов
@@ -46,5 +55,5 @@ class Tag
     }
 }
 $obj=new Tag('input');
-echo $obj->setAttr('type','submit')->setAttr('value','letsGo')->open();
+echo $obj->setAttr('type','submit')->setAttr('value','letsGo')->removeAttr('value')->open();
 ?>
