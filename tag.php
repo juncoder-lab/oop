@@ -9,6 +9,23 @@ class Tag
     {
         $this->name=$name;
     }
+    public function addClass($nameclass)
+    { //Добавляет в атрибут class новые значения
+        if(isset ($this->attr['class']))
+        {
+            $classes=explode(" ", $this->attr['class']);
+            if(!in_array($nameclass, $classes))
+            {
+                $classes[]=$nameclass;
+                $this->attr['class']=implode(" ", $classes);
+            }
+        }
+        else
+        {
+            $this->attr['class']=$nameclass;
+        }
+        return $this;
+    }
     public function setAttr($name, $value)
     {
         //Метод для добавления атрибутов тэга
@@ -62,6 +79,9 @@ class Tag
         }
     }
 }
-$obj=new Tag('input');
-echo $obj->setAttr('type','submit')->setAttr('value','letsGo')->removeAttr('value')->open();
+//$obj=new Tag('input');
+//echo $obj->setAttr('type','submit')->setAttr('value','letsGo')->removeAttr('value')->open();
+echo (new Tag('input'))->setAttr('value','input your name')->open();
+echo (new Tag('input'))->setAttr('type','password')->open();
+echo (new Tag('input'))->setAttr('type','submit')->setAttr('value','letsGo')->open();
 ?>
