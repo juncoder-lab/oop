@@ -11,7 +11,14 @@ class Tag
     }
     public function setAttr($name, $value)
     {
+        //Метод для добавления атрибутов тэга
         $this->attr[$name]=$value;
+        return $this;
+    }
+    public function removeAttr($name)
+    {
+        //Удаление атрибутов
+        unset($this->attr[$name]);
         return $this;
     }
     public function open()
