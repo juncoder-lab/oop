@@ -5,9 +5,33 @@ class Tag
 {
     private $name;
     private $attr;
+    private $text;
     public function __construct($name)
     {
         $this->name=$name;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
+    public function getText()
+    {
+        return $this->text;
+    }
+    public function getAttrs()
+    {
+        return $this->attr;
+    }
+    public function getAttr($name)
+    {
+        if(isset ($this->attr[$name]))
+        {
+            return $this->attr[$name];
+        }
+        else
+        {
+            return null;
+        }
     }
     public function removeClass($nameclass)
     {
@@ -100,7 +124,11 @@ class Tag
 }
 //$obj=new Tag('input');
 //echo $obj->setAttr('type','submit')->setAttr('value','letsGo')->removeAttr('value')->open();
-echo (new Tag('input'))->setAttr('value','input your name')->open();
-echo (new Tag('input'))->setAttr('type','password')->open();
-echo (new Tag('input'))->setAttr('type','submit')->setAttr('value','letsGo')->open();
+//echo (new Tag('input'))->setAttr('value','input your name')->open();
+//echo (new Tag('input'))->setAttr('type','password')->open();
+//echo (new Tag('input'))->setAttr('type','submit')->setAttr('value','letsGo')->open();
+echo (new Tag('input'))
+    ->setAttr('class', 'eee zzz kkk') // добавим 3 класса
+    ->removeClass('zzz') // удалим класс 'zzz'
+    ->open(); // выведет <input class="eee kkk">
 ?>
