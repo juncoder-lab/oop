@@ -164,8 +164,8 @@ class Tag implements iTag
 //echo (new Tag('input'))->setAttr('value','input your name')->open();
 //echo (new Tag('input'))->setAttr('type','password')->open();
 //echo (new Tag('input'))->setAttr('type','submit')->setAttr('value','letsGo')->open();
-echo (new Tag('input'))
-    ->setAttr('class', 'eee zzz kkk') // добавим 3 класса
-    ->removeClass('zzz') // удалим класс 'zzz'
-    ->open(); // выведет <input class="eee kkk">
+//echo (new Tag('input'))
+  //  ->setAttr('class', 'eee zzz kkk') // добавим 3 класса
+  //  ->removeClass('zzz') // удалим класс 'zzz'
+  //  ->open(); // выведет <input class="eee kkk">
 ?>
