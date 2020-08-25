@@ -1,7 +1,35 @@
 <?php
 //Создает html тэги
 //Принимает параметр $name соответствующий названию тэга
-class Tag
+interface iTag
+{    // Геттер имени:
+    public function getName();
+    // Геттер текста:
+    public function getText();
+    // Геттер всех атрибутов:
+    public function getAttrs();
+    // Геттер одного атрибута по имени:
+    public function getAttr($name);
+    // Открывающий тег, текст и закрывающий тег:
+    public function show();
+    // Открывающий тег:
+    public function open();
+    // Закрывающий тег:
+    public function close();
+    // Установка текста:
+    public function setText($text);
+    // Установка атрибута:
+    public function setAttr($name, $value = true);
+    // Установка атрибутов:
+    public function setAttrs($attr);
+    // Удаление атрибута:
+    public function removeAttr($name);
+    // Установка класса:
+    public function addClass($className);
+    // Удаление класса:
+    public function removeClass($className);
+}
+class Tag implements iTag
 {
     private $name;
     private $attr;
@@ -17,6 +45,15 @@ class Tag
     public function getText()
     {
         return $this->text;
+    }
+    public function setText($text)
+    {
+        $this->text=$text;
+        return $this;
+    }
+    public function show()
+    {
+        return $this->open().$this->text.$this->close();
     }
     public function getAttrs()
     {
@@ -63,7 +100,7 @@ class Tag
         }
         return $this;
     }
-    public function setAttr($name, $value)
+    public function setAttr($name, $value=true)
     {
         //Метод для добавления атрибутов тэга
         $this->attr[$name]=$value;
