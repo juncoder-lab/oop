@@ -14,8 +14,13 @@ class Tag
         if(isset ($this->attr['class']))
         {
             $classes=explode(" ", $this->attr['class']);
-            $this->removeElemfromArray($classes, $nameclass);
+            if (in_array($nameclass, $classes))
+            {
+               $classes=$this->removeElemfromArray($classes, $nameclass);
+               $this->attr['class']= $this->attr['class']=implode(" ", $classes);
+            }
         }
+        return $this;
     }
     public function addClass($nameclass)
     { //Добавляет в атрибут class новые значения
